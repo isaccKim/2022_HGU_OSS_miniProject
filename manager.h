@@ -10,4 +10,11 @@ int listProduct(Product *p, int count); // 전체 등록된 제품 리스트 출
 void searchProductName(Product *p, int count); // 제품이름 검색
 void searchProductPrice(Product *p, int count); // 제품가격 검색 
 void searchProductShipping(Product *p, int count); // 배송방법 검색
+//FILE
+
+void saveProduct(Product *p, int count); //데이터를 파일에 저장 하는 함수
+int loadProduct(Product *p);// 저장된 데이터를 불러오는 함수
+
+
+
 
