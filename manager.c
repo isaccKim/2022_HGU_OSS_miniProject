@@ -61,4 +61,24 @@ void searchProductName(Product *p, int count){
     printf("\n");
 }// 제품이름 검색
 
+void searchProductPrice(Product *p, int count){
+    int scnt = 0;
+    int search = 0;
+
+    printf("검색할 제품가격?");
+    scanf(" %d", &search);
+    
+    printf("\n********************* Mini Project *********************\n");
+    for(int i=0; i<count; i++){
+        if(p[i].price == -1)continue;
+        if(p[i].price == search){
+            printf("%2d ", i+1);
+            readProduct(&p[i]);
+            scnt++;
+        }
+    }
+    if(scnt ==0)printf("=> 검색된 데이터 없음!");
+    printf("\n");
+} // 제품가격 검색
+
 
