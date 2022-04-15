@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "manager.h"
+#include <stdlib.h>
 
 int listProduct(Product *p, int count){
     printf("\n********************* Mini Project *********************\n");
@@ -128,24 +129,24 @@ int loadProduct(Product *p){
     else{
             while(!feof(fp)){
                 if((!fgets(buf, sizeof(buf), fp))) break;
-                printf("%s",wBuf);
+                wBuf = strtok(buf,",");
                 strcpy(p[i].name, wBuf);
                 
-                printf("%s",wBuf);
+                wBuf = strtok(NULL,",");
                 strcpy(p[i].contents, wBuf);
                 
-                printf("%s",wBuf);
+                wBuf = strtok(NULL,",");
                 strcpy(p[i].weight, wBuf);
 
-                printf("%s",wBuf);
+                wBuf = strtok(NULL,",");
                 nBuf = atoi(wBuf);
                 p[i].price = nBuf;
 
-                printf("%s",wBuf);
+                wBuf = strtok(NULL,",");
                 nBuf = atoi(wBuf);
                 p[i].shipping = nBuf;
                 i++;
-                count++;
+            count++;
             }
         fclose(fp);
         printf("=> 로딩 성공\n");
