@@ -41,3 +41,24 @@ int selectMenu(){
 }
 
 
+void searchProductName(Product *p, int count){
+    int scnt = 0;
+    char search[20];
+
+    printf("검색할 이름?");
+    scanf(" %s", search);
+    
+    printf("\n********************* Mini Project *********************\n");
+    for(int i=0; i<count; i++){
+        if(p[i].price == -1)continue;
+        if(strstr(p[i].name,search)){
+            printf("%2d ", i+1);
+            readProduct(&p[i]);
+            scnt++;
+        }
+    }
+    if(scnt ==0)printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}// 제품이름 검색
+
+
