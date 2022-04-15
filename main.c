@@ -54,6 +54,18 @@ int main(){
         else if(menu == 5){
            saveProduct(p,index);
            }
+
+        else if(menu == 6){
+            searchProductName(p,index);
+        }
+
+        else if(menu == 7){
+            searchProductPrice(p,index);
+        }
+
+        else if(menu == 8){
+            searchProductShipping(p,index);
+        }
             continue;
     }
     printf("종료됨!\n");
