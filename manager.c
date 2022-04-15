@@ -106,10 +106,51 @@ void saveProduct(Product *p, int count){
     fp = fopen("Product.txt","wt");
     for(int i=0; i<count; i++){
         if(p->price == -1)continue;
-        fprintf(fp,"%s  %s  %s  %d  %d\n",p[i].name, p[i].contents,p[i].weight,p[i].price, p[i].shipping);
+        fprintf(fp,"%s,  %s,  %s,  %d,  %d\n",p[i].name, p[i].contents,p[i].weight,p[i].price, p[i].shipping);
     }
     fclose(fp);
     printf("=>저장됨!\n");
 } //데이터를 파일에 저장 하는 함수
+
+int loadProduct(Product *p){
+    int count = 0;
+    FILE *fp;
+    int i = 0;
+    char buf[3000];
+    char *wBuf;
+    int nBuf;
+    fp = fopen("Product.txt","rt");
+    printf("\n");
+
+    if(fp == NULL){
+        printf("=> 파일 없음");
+    }
+    else{
+            while(!feof(fp)){
+                if((!fgets(buf, sizeof(buf), fp))) break;
+                printf("%s",wBuf);
+                strcpy(p[i].name, wBuf);
+                
+                printf("%s",wBuf);
+                strcpy(p[i].contents, wBuf);
+                
+                printf("%s",wBuf);
+                strcpy(p[i].weight, wBuf);
+
+                printf("%s",wBuf);
+                nBuf = atoi(wBuf);
+                p[i].price = nBuf;
+
+                printf("%s",wBuf);
+                nBuf = atoi(wBuf);
+                p[i].shipping = nBuf;
+                i++;
+                count++;
+            }
+        fclose(fp);
+        printf("=> 로딩 성공\n");
+        }
+    return count;
+}// 저장된 데이터를 불러오는 함수
 
 
