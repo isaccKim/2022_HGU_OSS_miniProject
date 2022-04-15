@@ -101,4 +101,15 @@ void searchProductShipping(Product *p, int count){
     printf("\n");
     }// 배송방법 검색
 
+void saveProduct(Product *p, int count){
+    FILE *fp ;
+    fp = fopen("Product.txt","wt");
+    for(int i=0; i<count; i++){
+        if(p->price == -1)continue;
+        fprintf(fp,"%s  %s  %s  %d  %d\n",p[i].name, p[i].contents,p[i].weight,p[i].price, p[i].shipping);
+    }
+    fclose(fp);
+    printf("=>저장됨!\n");
+} //데이터를 파일에 저장 하는 함수
+
 
