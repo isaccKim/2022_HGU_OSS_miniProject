@@ -10,7 +10,7 @@ int main(){
 #ifdef DEBUG
    printf("===>DEBUG MODE!");
 #endif
-    dwd9d9while (1){
+    while (1){
         menu = selectMenu();
         if (menu == 0)
             break;
@@ -50,6 +50,11 @@ int main(){
             scanf("%d", &deleteOk);
             if (deleteOk == 1)count -= deleteProduct(&p[no-1]);
         }
+
+        else if(menu == 5){
+           saveProduct(p,index);
+           }
+            continue;
     }
     printf("종료됨!\n");
     return 0;
