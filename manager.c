@@ -81,4 +81,24 @@ void searchProductPrice(Product *p, int count){
     printf("\n");
 } // 제품가격 검색
 
+void searchProductShipping(Product *p, int count){
+    int scnt = 0;
+    int search = 0;
+
+    printf("검색할 배송방법?");
+    scanf(" %d", &search);
+    
+    printf("\n********************* Mini Project *********************\n");
+    for(int i=0; i<count; i++){
+        if(p[i].price == -1)continue;
+        if(p[i].shipping == search ){
+            printf("%2d ", i+1);
+            readProduct(&p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0)printf("=> 검색된 데이터 없음!");
+    printf("\n");
+    }// 배송방법 검색
+
 
